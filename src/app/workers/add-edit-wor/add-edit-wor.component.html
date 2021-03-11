@@ -1,0 +1,35 @@
+<form>
+  <div class="form-group">
+    <label>Имя</label>
+    <input [(ngModel)]="worker.name" name="name" type="text" class="form-control" placeholder="Введите имя">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input [(ngModel)]="worker.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+           placeholder="Enter email" >
+  </div>
+  <div class="form-group">
+    <label>Телефон</label>
+    <input [(ngModel)]="worker.phone" name="phone" type="text" class="form-control" type="tel" placeholder="Введите номер телефона" >
+  </div>
+  <div class="form-group">
+    <label>Долность</label>
+    <input [(ngModel)]="worker.position" name="position" type="text" class="form-control" placeholder="Введите должность" >
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Отдел</label>
+    <select class="form-control" id="exampleSelect1" name="cat" [(ngModel)]="worker.category.id">
+      <option *ngFor="let item of categ"  [value]="item.id" >
+        {{item.name}}
+      </option>
+    </select>
+  </div>
+  <button (click)="addWor()" *ngIf="worker.opt=='add'" class="btn btn-primary">
+    Добавить
+  </button>
+  <button (click)="updateWor()" *ngIf="worker.opt=='edit'" class="btn btn-primary">
+    Изменить
+  </button>
+</form>
+
+

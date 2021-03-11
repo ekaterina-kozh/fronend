@@ -1,0 +1,22 @@
+<div class="form-froup row">
+
+  <label class="col-sm-2 col-form-label">Название отдела</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" [(ngModel)]="cat.name"
+           placeholder="Введите название отдела">
+    <br>
+    <select class="form-control" [(ngModel)]="cat.opt=='add' ? cat.id : cat.parent_id">
+      <option *ngFor="let item of cat.result"  [value]="item.id" >
+        {{item.name}}
+      </option>
+    </select>
+  </div>
+</div>
+
+<button (click)="addCat()" *ngIf="cat.opt=='add'" class="btn btn-primary">
+  Добавить
+</button>
+
+<button (click)="updateCat()" *ngIf="cat.opt=='edit'" class="btn btn-primary">
+  Изменить
+</button>
